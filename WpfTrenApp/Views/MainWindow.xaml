@@ -40,10 +40,18 @@
                    Foreground="#CCBBCD" FontFamily="Arial Black"
                    >-</Label>
             <TabControl Margin="30" >
-                <TabItem Header="TabItem">
+                <TabItem Header="Главное окно">
+                    <Grid Background="#D0CDC6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="43*"/>
+                            <RowDefinition Height="319*"/>
+                        </Grid.RowDefinitions>
 
-
-                    <Grid Background="#D0CDC6"/>
+                        <Label x:Name="date_label" Grid.Row="0" HorizontalAlignment="Center" FontSize="20">
+                            2
+                        </Label>
+                    </Grid>
+                    
                 </TabItem>
                 <TabItem Header="Тренировка"   >
                     <Grid Background="#D0CDC6"/>

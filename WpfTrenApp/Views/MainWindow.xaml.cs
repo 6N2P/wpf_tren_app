@@ -23,6 +23,9 @@ namespace WpfTrenApp
         public MainWindow()
         {
             InitializeComponent();
+
+            DateTime dateTime = DateTime.Now;
+            date_label.Content = dateTime.ToString();
         }
 
        
