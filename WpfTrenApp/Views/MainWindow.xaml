@@ -16,12 +16,17 @@
     <Border Background="#C6C6CE" CornerRadius="30">
 
         <Grid MouseDown="Grid_MouseDown" >
+            <Label HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontSize="30"
+                   Foreground="#0B0B11"> 
+                Мистер Вселенная
+            </Label>
             <Label MouseDown="Label_MouseDown" 
                    Height="20" Width="20" 
                    VerticalAlignment="Top"
                    HorizontalAlignment="Right"
-                   Background="#0B0B11"
-                   
+                   Background="#0B0B11"                   
                    Margin="0,10,25,0"
                    HorizontalContentAlignment="Center"
                    VerticalContentAlignment="Center" FontSize="10" 
@@ -41,23 +46,37 @@
                    >-</Label>
             <TabControl Margin="30" >
                 <TabItem Header="Главное окно">
-                    <Grid Background="#D0CDC6">
+                    <Grid Background="White">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="43*"/>
-                            <RowDefinition Height="319*"/>
+                            <RowDefinition  Height="40*"/>
+                            <RowDefinition Height="320*"/>
                         </Grid.RowDefinitions>
 
-                        <Label x:Name="date_label" Grid.Row="0" HorizontalAlignment="Center" FontSize="20">
-                            2
+                        <Label x:Name="date_label" Grid.Row="0" 
+                               HorizontalAlignment="Center" 
+                               FontSize="20"
+                               Foreground="#0B0B11">
+                            Date
                         </Label>
                     </Grid>
-                    
+
                 </TabItem>
                 <TabItem Header="Тренировка"   >
-                    <Grid Background="#D0CDC6"/>
+                    <Grid Background="White"/>
                 </TabItem>
                 <TabItem Header="Питание"  >
-                    <Grid Background="#D0CDC6"/>
+                    <Grid Background="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </TabItem>
             </TabControl>
 

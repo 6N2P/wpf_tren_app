@@ -24,8 +24,9 @@ namespace WpfTrenApp
         {
             InitializeComponent();
 
+            //Вывод актуальной даты на главном окне
             DateTime dateTime = DateTime.Now;
-            date_label.Content = dateTime.ToString();
+            date_label.Content = $"{dateTime.ToString("D")}";
         }
 
        
