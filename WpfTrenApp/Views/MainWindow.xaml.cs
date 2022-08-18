@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfTrenApp.Views;
 
 namespace WpfTrenApp
 {
@@ -47,6 +48,12 @@ namespace WpfTrenApp
             {
                 this.DragMove();
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var pageCreateUser = new CreateUserWindow1();
+            pageCreateUser.Show();
         }
     }
 }

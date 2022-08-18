@@ -1,0 +1,75 @@
+﻿<Window x:Class="WpfTrenApp.Views.CreateUserWindow1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTrenApp.Views"
+        mc:Ignorable="d"
+        Title="CreateUserWindow1" Height="250" Width="300"
+        Background="Transparent" 
+        WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" >
+    <Border Background="#C6C6CE" CornerRadius="30">
+        <Border.Resources>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Bryndan Handwriting"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+        </Border.Resources>
+        <Grid Margin="20" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="45*"/>
+                <ColumnDefinition Width="85*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+
+
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" >Имя</Label>
+            <TextBox x:Name="tbName" 
+                     Grid.Column="1" 
+                     Grid.Row="0"
+                     FontFamily="Bryndan Handwriting"
+                     VerticalAlignment="Center"
+                     FontSize="20">
+            </TextBox>
+            <Label FontSize="13" HorizontalAlignment="Left" Grid.Row="1" >Дата рождения</Label>
+            <DatePicker x:Name="dpDateOfBirth" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"></DatePicker>
+            <Label Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" >Рост</Label>
+            <TextBox x:Name="tbGrowth" 
+                     Grid.Column="1" 
+                     Grid.Row="2"
+                     FontFamily="Bryndan Handwriting"
+                     VerticalAlignment="Center"
+                     FontSize="20">
+            </TextBox>
+            <Label Grid.Row="3" VerticalAlignment="Center" FontSize="15" HorizontalAlignment="Left" >Текущий вес</Label>
+            <TextBox x:Name="tbWeightNaw" 
+                     Grid.Column="1" 
+                     Grid.Row="3"
+                     FontFamily="Bryndan Handwriting"
+                     VerticalAlignment="Center"
+                     FontSize="20">
+            </TextBox>
+            <Label Grid.Row="4" VerticalAlignment="Center" FontSize="18" HorizontalAlignment="Left" >Активность</Label>
+            <ComboBox Name="cbAktiv"
+                      Grid.Column="1" 
+                      Grid.Row="4" 
+                      Margin="5"></ComboBox>
+            <Button Grid.Row="5" 
+                    Grid.ColumnSpan="2" 
+                    Margin="5" 
+                    FontFamily="Bryndan Handwriting"
+                    FontSize="18" Click="Button_Click">
+                OK
+            </Button>
+        </Grid>
+    </Border>
+</Window>

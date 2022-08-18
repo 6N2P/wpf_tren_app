@@ -10,19 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfTrenApp.Views
 {
     /// <summary>
-    /// Логика взаимодействия для CreateUserWindow.xaml
+    /// Логика взаимодействия для CreateUserWindow1.xaml
     /// </summary>
-    public partial class CreateUserWindow : Page
+    public partial class CreateUserWindow1 : Window
     {
-        public CreateUserWindow()
+        public CreateUserWindow1()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
