@@ -38,17 +38,19 @@
                      Grid.Row="0"
                      FontFamily="Bryndan Handwriting"
                      VerticalAlignment="Center"
-                     FontSize="20">
+                     FontSize="20"
+                     Margin="5">
             </TextBox>
             <Label FontSize="13" HorizontalAlignment="Left" Grid.Row="1" >Дата рождения</Label>
-            <DatePicker x:Name="dpDateOfBirth" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"></DatePicker>
+            <DatePicker x:Name="dpDateOfBirth" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin=" 5"></DatePicker>
             <Label Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" >Рост</Label>
             <TextBox x:Name="tbGrowth" 
                      Grid.Column="1" 
                      Grid.Row="2"
                      FontFamily="Bryndan Handwriting"
                      VerticalAlignment="Center"
-                     FontSize="20">
+                     FontSize="20"
+                     Margin="5">
             </TextBox>
             <Label Grid.Row="3" VerticalAlignment="Center" FontSize="15" HorizontalAlignment="Left" >Текущий вес</Label>
             <TextBox x:Name="tbWeightNaw" 
@@ -56,7 +58,8 @@
                      Grid.Row="3"
                      FontFamily="Bryndan Handwriting"
                      VerticalAlignment="Center"
-                     FontSize="20">
+                     FontSize="20"
+                     Margin="5">
             </TextBox>
             <Label Grid.Row="4" VerticalAlignment="Center" FontSize="18" HorizontalAlignment="Left" >Активность</Label>
             <ComboBox Name="cbAktiv"

@@ -4,9 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTrenApp"
+        xmlns:vm="clr-namespace:WpfTrenApp.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="Transparent" 
-        WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" >
+        WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen"
+        FontFamily="Bryndan Handwriting">
+    
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    
     <Window.Resources>
         <Style TargetType="TabItem">
             <Setter Property="FontFamily" Value="Bryndan Handwriting"/>
@@ -18,6 +25,8 @@
     <Border Background="#C6C6CE" CornerRadius="30">
 
         <Grid MouseDown="Grid_MouseDown" >
+            <!--#region Название проги -->
+            
             <Label HorizontalAlignment="Center"
                    VerticalAlignment="Top"
                    FontSize="30"
@@ -26,6 +35,8 @@
                    FontWeight="Bold" > 
                 Мистер Вселенная
             </Label>
+            <!--#endregion-->
+            <!--#region Кнопки закрывания и сворачивания-->
             <Label MouseDown="Label_MouseDown" 
                    Height="20" Width="20" 
                    VerticalAlignment="Top"
@@ -48,52 +59,163 @@
                    VerticalContentAlignment="Center" FontSize="10" 
                    Foreground="#CCBBCD" FontFamily="Arial Black"
                    >-</Label>
+            <!--#endregion Кнопки закрывания и сварачивания-->
+            
             <TabControl Margin="30" >
+                <!--#region Главноу окно-->
                 <TabItem Header="Главное окно">
                     <Grid Background="White">
                         <Grid.RowDefinitions>
                             <RowDefinition  Height="40*"/>
                             <RowDefinition Height="320*"/>
+                            <RowDefinition Height=" 40*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
+
+                        <Canvas Grid.ColumnSpan="3" Background="#BFBDCE"/>
 
                         <Label x:Name="date_label" Grid.Row="0" 
                                HorizontalAlignment="Center" 
                                FontSize="30"
-                               Foreground="#0B0B11">
-                            Date
+                               Foreground="#18160F" 
+                               Margin="0,-5,0,0"
+                               Content="{Binding DateNaw.Date}">
+                            
                         </Label>
+                        <!--#region Список Атлетов-->
+                        <ListView x:Name="ListOfAthletes" Grid.Row="1" Margin="5">
+                            <ListView.View>
+                                <GridView>
+                                    <GridView.Columns>
+                                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Path=ModelNameAtletes}" />
+                                        <GridViewColumn Header="Вес" DisplayMemberBinding="{Binding Path=ModelWeightAtletes}" />
+                                        <GridViewColumn Header="Программа" DisplayMemberBinding="{Binding Path=ModelProgramAtlet}" />
+                                    </GridView.Columns>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <!--#endregion Список Атлетов-->
+                        <!--Кнопка Создать пользователя-->
                         <Button Grid.Column="0"
-                                Grid.Row="1"
+                                Grid.Row="2"
                                 Height="30"
                                 Width="200"
                                 HorizontalAlignment="Center"
-                                VerticalAlignment="Bottom" Click="Button_Click"> 
+                                VerticalAlignment="Center" Click="Button_Click"> 
                             Создать пользователя
                         </Button>
-                    </Grid>
 
+                        <!--#region Список упрожнений на сегодня-->
+                        <ListView x:Name="ListOfWorkaut" Grid.Row="1" Grid.Column="1" Margin="5">
+                            <ListView.View>
+                                <GridView>
+                                    <GridView.Columns>
+                                        <GridViewColumn Header="Упрожнение" DisplayMemberBinding="{Binding Path=ModelNameAtletes}"/>
+                                        <GridViewColumn Header="Вес" DisplayMemberBinding="{Binding Path=ModelWeightAtletes}" />
+                                        <GridViewColumn Header="П1"/>
+                                    </GridView.Columns>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <!--#endregion Список упрожнений на сегодня-->
+                        
+                        <StackPanel Grid.Column="1" 
+                                    Orientation="Horizontal" 
+                                    HorizontalAlignment="Center">
+                            <Label Name="lbNameAtlet" FontSize="20" Foreground="#18160F">
+                                lbNameAtlet
+                            </Label>
+
+                            <Label Name ="lbWeight" FontSize="20" Foreground="#18160F">
+                                Weight
+                            </Label>
+                        </StackPanel>
+
+                        <Label Grid.Column="2" 
+                               HorizontalAlignment="Center" 
+                               FontSize="30"
+                               VerticalAlignment="Top" Margin="0,-5,0,0">
+                            Таймер
+                        </Label>
+                        
+                    </Grid>
                 </TabItem>
+                <!--#endregion Главное окно-->
+                <!--#region Окно тренировки-->
                 <TabItem Header="Тренировка"   >
                     <Grid Background="White"/>
                 </TabItem>
+                <!--#endregion Окно тренировки-->
+                <!--#region Окно птания-->
                 <TabItem Header="Питание"  >
                     <Grid Background="White">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition />
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="0.7*"/>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="1*"/>
                         </Grid.RowDefinitions>
+                        <!--#region Шапка-->
+                        <Canvas Grid.ColumnSpan="4" Background="#BFBDCE"/>
+                        <StackPanel Grid.Column="0"
+                                    Grid.ColumnSpan="4"
+                                    Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            <Label>
+                                Необходимо калорий
+                            </Label>
+                            <Label Name="caloryCalc">
+                                caloryCalc
+                            </Label>
+                            <Label>
+                                тукущий вес
+                            </Label>
+                            <Label Name ="realWeight">
+                                realWeight
+                            </Label>
+                        </StackPanel>
+                        <!--#endregion Шапка-->
+                        <!--#region Таблица питания-->
+                        <Label Grid.Row="1"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="20">
+                            Питание
+                        </Label>
+                        <ListView x:Name="ListFood" Grid.Row="2" Grid.Column="0" Margin="5">
+                            <ListView.View>
+                                <GridView>
+                                    <GridView.Columns>
+                                        <GridViewColumn Header="Продукт" DisplayMemberBinding="{Binding Path=ModelNameAtletes}"/>
+                                        <GridViewColumn Header="Б" DisplayMemberBinding="{Binding Path=ModelWeightAtletes}" />
+                                        <GridViewColumn Header="Ж"/>
+                                        <GridViewColumn Header="У"/>
+                                        <GridViewColumn Header="Кал."/>
+                                    </GridView.Columns>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Button x:Name="btAddFood"
+                                Grid.Row="4"
+                                Margin="5">
+                            Добавить продукт
+                        </Button>
+                        <!--#endregion Таблица питания-->
+                        
                     </Grid>
                 </TabItem>
+                <!--#endregion Окно питания-->
             </TabControl>
 
         </Grid>

@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfTrenApp.ViewModels;
 using WpfTrenApp.Views;
+
 
 namespace WpfTrenApp
 {
@@ -26,8 +28,9 @@ namespace WpfTrenApp
             InitializeComponent();
 
             //Вывод актуальной даты на главном окне
-            DateTime dateTime = DateTime.Now;
-            date_label.Content = $"{dateTime.ToString("D")}";
+           
+
+            this.DataContext = new MainViewModel();
         }
 
        
