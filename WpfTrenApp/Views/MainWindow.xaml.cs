@@ -27,9 +27,6 @@ namespace WpfTrenApp
         {
             InitializeComponent();
 
-            //Вывод актуальной даты на главном окне
-           
-
             this.DataContext = new MainViewModel();
         }
 
@@ -53,10 +50,6 @@ namespace WpfTrenApp
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var pageCreateUser = new CreateUserWindow1();
-            pageCreateUser.Show();
-        }
+       
     }
 }

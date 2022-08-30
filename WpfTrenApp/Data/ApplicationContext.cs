@@ -7,10 +7,10 @@ using System.Data.Entity;
 
 namespace WpfTrenApp.Data
 {
-    internal class AppContext : DbContext
+    internal class ApplicationContext : DbContext
     {
         public DbSet<Atlet> Atlets { get; set; }
 
-        public AppContext() : base("DefaultConnection") { }
+        public ApplicationContext() : base("DefaultConnection") { }
     }
 }
