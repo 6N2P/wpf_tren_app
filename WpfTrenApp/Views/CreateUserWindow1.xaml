@@ -62,18 +62,27 @@
                      FontFamily="Bryndan Handwriting"
                      VerticalAlignment="Center"
                      FontSize="20"
-                     Margin="5,0,5,0">
+                     Margin="5,0,5,0"
+                     Text="{Binding Weight}">
             </TextBox>
             <Label Grid.Row="4" FontSize="18" Grid.ColumnSpan="2" >Активность</Label>
             <ComboBox Name="cbAktiv"
                       Grid.Column="2" 
                       Grid.Row="4" 
-                      Margin="5,5,5,5"></ComboBox>
+                      Margin="5,5,5,5"
+                      SelectedIndex="{Binding Activity}">
+                <ComboBoxItem >Минимальная нагрузка (офис)</ComboBoxItem>
+                <ComboBoxItem>2 раза в неделю тренировка</ComboBoxItem>
+                <ComboBoxItem>3 раза в неделю тренировка</ComboBoxItem>
+                <ComboBoxItem>Активный стиль жизни</ComboBoxItem>
+                <ComboBoxItem>Спортик</ComboBoxItem>
+            </ComboBox>
             <Button Grid.Row="5" 
                     Grid.ColumnSpan="3" 
                     Margin="5,5,5,5" 
                     FontFamily="Bryndan Handwriting"
-                    FontSize="18" Click="Button_Click">
+                    FontSize="18" Click="Button_Click"
+                    Command="{Binding CreateAtlet}">
                 OK
             </Button>
         </Grid>

@@ -45,6 +45,9 @@ namespace WpfTrenApp.ViewModels
         {
             DateNaw = DateTime.Now;
             db = new ApplicationContext();
+
+            List<Atlet> atlets= new List<Atlet>();
+            atlets = db.Atlets.ToList();
         }
     }
 }

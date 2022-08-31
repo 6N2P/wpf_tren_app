@@ -6,26 +6,34 @@ using System.Threading.Tasks;
 
 namespace WpfTrenApp.Data
 {
-    internal class Atlet
+    public class Atlet
     {
         //название переменных должно быть такоеже как в БД это важно!!!
-        private int ID { get; set; }
-        private string Name { get; set; }
-        private int Age { get; set; }
-        private int Growth { get; set; }
-        private int Weight { get; set; }
-        private string Progtren { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public int Growth { get; set; }
+        public int Weight { get; set; }
+        public string Progtren { get; set; }
 
         public Atlet() { }
 
-        public Atlet(int iD, string name, int age, int growth, int weight, string progtren)
+        public Atlet( string name, int age, int growth, int weight, string progtren)
         {
-            ID = iD;
+            
             Name = name;
             Age = age;
             Growth = growth;
             Weight = weight;
             Progtren = progtren;
         }
+
+        public static int GetAge(DateTime birthDate)
+        {
+            var now = DateTime.Today;
+            return now.Year - birthDate.Year - 1 +
+                ((now.Month > birthDate.Month || now.Month == birthDate.Month && now.Day >= birthDate.Day) ? 1 : 0);
+        }
+        
     }
 }

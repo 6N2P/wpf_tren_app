@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfTrenApp.Data;
+using WpfTrenApp.Views;
 
 namespace WpfTrenApp.ViewModels
 {
     public class CreateUserViewModel : PropertyChangeBase
     {
+        ApplicationContext db;
+
+        #region Property
         public string NameUser 
         { get => name;
             set
@@ -31,19 +36,62 @@ namespace WpfTrenApp.ViewModels
                 OnPropertyChanged("Growth");
             }
         }
-        public double Weight { get => weight; set => weight = value; }
-        public int Activity { get => activity; set => activity = value; }
+        public int Weight
+        {
+            get => weight;
+            set
+            {
+                weight = value;
+                OnPropertyChanged("Weight");
+            }
+        }
+        public int Activity
+        {
+            get => activity;
+            set
+            {
+                activity = value;
+                OnPropertyChanged("Activity");
+            }
+        }
 
         private string name;
         private DateTime birthdey;
         private int growth;
-        private double weight;
+        private int weight;
         private int activity;
 
-        public CreateUserViewModel()
+        #endregion Property
+
+        #region Comman
+        private RelayCommand createAtlet;
+        public RelayCommand CreateAtlet
         {
+            get
+            {
+                return createAtlet ??
+                    (createAtlet = new RelayCommand(obj =>
+                    {
+                        int ageNow = Atlet.GetAge(Birthdey);
+                        Atlet user = new Atlet(NameUser, ageNow, Growth, Weight, "M4");
+                        db.Atlets.Add(user);
+                        db.SaveChanges();
+                    }));
+            }
+        }
+        #endregion Command
+        public CreateUserViewModel()
+        {           
+
+            NameUser = "Плюшевая борода";
             DateTime dateNow = DateTime.Now;
             Birthdey =  dateNow;
+            Growth = 180;
+            Weight = 80;
+            Activity = 2;
+
+            db = new ApplicationContext();
+            
         }
     }
 }
