@@ -91,25 +91,41 @@
                             <ListView.View>
                                 <GridView>
                                     <GridView.Columns>
-                                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Path=ModelNameAtletes}" />
-                                        <GridViewColumn Header="Вес" DisplayMemberBinding="{Binding Path=ModelWeightAtletes}" />
-                                        <GridViewColumn Header="Программа" DisplayMemberBinding="{Binding Path=ModelProgramAtlet}" />
+                                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Path=Name}" />
+                                        <GridViewColumn Header="Вес" DisplayMemberBinding="{Binding Path=Weight}" />
+                                        <GridViewColumn Header="Программа" DisplayMemberBinding="{Binding Path=Progtren}" />
                                     </GridView.Columns>
                                 </GridView>
                             </ListView.View>
                         </ListView>
                         <!--#endregion Список Атлетов-->
                         <!--Кнопка Создать пользователя-->
-                        <Button Grid.Column="0"
+                        <StackPanel Grid.Column="0"
                                 Grid.Row="2"
+                                    Orientation="Horizontal"
+                                    HorizontalAlignment="Center">
+                        <Button 
                                 Height="30"
-                                Width="200"
+                                Width="auto"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center" 
+                            Margin="5"
                                 Command="{Binding OpenCreateUserWindow}"> 
-                            Создать пользователя
-                        </Button>
-
+                            Создать
+                            </Button>
+                            <Button Height="30"
+                                Width="auto"
+                                Margin="5"
+                                    Click="updateButton_Click">
+                                Обновить
+                            </Button>
+                            <Button Height="30"
+                                Width="auto"
+                                Margin="5"
+                                    Click="deleteButton_Click">
+                                Удалить
+                            </Button>
+                        </StackPanel>
                         <!--#region Список упрожнений на сегодня-->
                         <ListView x:Name="ListOfWorkaut" Grid.Row="1" Grid.Column="1" Margin="5">
                             <ListView.View>

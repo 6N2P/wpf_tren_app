@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,14 @@ namespace WpfTrenApp.Data
             return now.Year - birthDate.Year - 1 +
                 ((now.Month > birthDate.Month || now.Month == birthDate.Month && now.Day >= birthDate.Day) ? 1 : 0);
         }
-        
+
+        //public static List<Atlet> GetAllAtlets()
+        //{
+        //    ApplicationContext context = new ApplicationContext();
+        //    context.Atlets.Load();
+        //    List<Atlet> atlets = new List<Atlet>();
+        //    return atlets = context.Atlets.ToList();
+        //}
+
     }
 }

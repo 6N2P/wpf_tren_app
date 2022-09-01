@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using WpfTrenApp.Data;
 using WpfTrenApp.Views;
 
@@ -21,6 +23,7 @@ namespace WpfTrenApp.ViewModels
             get => _dateNaw;
             set { _dateNaw = value; OnPropertyChanged(nameof(DateNaw)); }
         }
+        
 
         #region Команды
         private RelayCommand openCreateUserWindow;
@@ -44,10 +47,7 @@ namespace WpfTrenApp.ViewModels
         public MainViewModel()
         {
             DateNaw = DateTime.Now;
-            db = new ApplicationContext();
-
-            List<Atlet> atlets= new List<Atlet>();
-            atlets = db.Atlets.ToList();
+         
         }
     }
 }
