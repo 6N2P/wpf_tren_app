@@ -54,12 +54,22 @@ namespace WpfTrenApp.ViewModels
                 OnPropertyChanged("Activity");
             }
         }
+        public string Tren 
+        { 
+            get => tren;
+            set
+            {
+                tren = value;
+                OnPropertyChanged("Tren");
+            }
+        }
 
         private string name;
         private DateTime birthdey;
         private int growth;
         private int weight;
         private int activity;
+        private string tren;
 
         #endregion Property
 
@@ -73,12 +83,16 @@ namespace WpfTrenApp.ViewModels
                     (createAtlet = new RelayCommand(obj =>
                     {
                         int ageNow = Atlet.GetAge(Birthdey);
-                        Atlet user = new Atlet(NameUser, ageNow, Growth, Weight, "M4");
+                        Atlet user = new Atlet(NameUser, ageNow, Growth, Weight, Tren);
                         db.Atlets.Add(user);
                         db.SaveChanges();
                     }));
             }
         }
+
+      
+
+        
         #endregion Command
         public CreateUserViewModel()
         {           
@@ -89,9 +103,9 @@ namespace WpfTrenApp.ViewModels
             Growth = 180;
             Weight = 80;
             Activity = 2;
+            Tren = "M4";
 
-            db = new ApplicationContext();
-            
+            db = new ApplicationContext();            
         }
     }
 }

@@ -10,6 +10,7 @@ namespace WpfTrenApp.Data
     public class ApplicationContext : DbContext
     {
         public DbSet<Atlet> Atlets { get; set; }
+        public DbSet<Food> Foods { get; set; }
 
         public ApplicationContext() : base("DefaultConnection") { }
 

@@ -17,11 +17,18 @@
                 <Setter Property="HorizontalAlignment" Value="Left"/>
                 <Setter Property="VerticalAlignment" Value="Center"/>
             </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="Bryndan Handwriting"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="Width" Value="60"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
         </Border.Resources>
         <Grid Margin="20" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="37*"/>
-                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="45*"/>
+                
                 <ColumnDefinition Width="85*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -31,7 +38,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
-
+                <RowDefinition/>
 
             </Grid.RowDefinitions>
             <Label >Имя</Label>
@@ -77,14 +84,30 @@
                 <ComboBoxItem>Активный стиль жизни</ComboBoxItem>
                 <ComboBoxItem>Спортик</ComboBoxItem>
             </ComboBox>
-            <Button Grid.Row="5" 
-                    Grid.ColumnSpan="3" 
-                    Margin="5,5,5,5" 
-                    FontFamily="Bryndan Handwriting"
-                    FontSize="18" Click="Button_Click"
+            <Label Grid.Row="5" FontSize="18"  >Программа</Label>
+            <ComboBox Name="cbTren"
+                      Grid.Column="2" 
+                      Grid.Row="5" 
+                      Margin="5,5,5,5"
+                      SelectedIndex="{Binding Tren}">
+                <ComboBoxItem>M4</ComboBoxItem>
+                <ComboBoxItem>Критикал масс 3</ComboBoxItem>
+                <ComboBoxItem>8х8</ComboBoxItem>
+            </ComboBox>
+            <StackPanel Grid.Row="7"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <Button
                     Command="{Binding CreateAtlet}">
-                OK
-            </Button>
+                    OK
+                </Button>
+                <Button Click="Button_Click_1">
+                    Отмена
+                </Button>
+            </StackPanel>
         </Grid>
     </Border>
 </Window>

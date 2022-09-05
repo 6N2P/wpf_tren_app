@@ -38,6 +38,8 @@ namespace WpfTrenApp
             this.DataContext = new MainViewModel();
 
             this.Closing += MainWindow_Closing;
+
+            
         }
 
         private void MainWindow_Closing(object sender, CancelEventArgs e)

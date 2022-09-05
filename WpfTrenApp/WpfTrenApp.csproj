@@ -88,6 +88,7 @@
     </Compile>
     <Compile Include="Data\ApplicationContext.cs" />
     <Compile Include="Data\Atlet.cs" />
+    <Compile Include="Data\Food.cs" />
     <Compile Include="ViewModels\CreateUserViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PropertyChangeBase.cs" />

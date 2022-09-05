@@ -99,13 +99,14 @@
                             </ListView.View>
                         </ListView>
                         <!--#endregion Список Атлетов-->
+                        <!--#region Кнопки для атлета-->
                         <!--Кнопка Создать пользователя-->
                         <StackPanel Grid.Column="0"
                                 Grid.Row="2"
                                     Orientation="Horizontal"
                                     HorizontalAlignment="Center">
                         <Button 
-                                Height="30"
+                                Height="25"
                                 Width="auto"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center" 
@@ -113,19 +114,20 @@
                                 Command="{Binding OpenCreateUserWindow}"> 
                             Создать
                             </Button>
-                            <Button Height="30"
+                            <Button Height="25"
                                 Width="auto"
                                 Margin="5"
                                     Click="updateButton_Click">
                                 Обновить
                             </Button>
-                            <Button Height="30"
+                            <Button Height="25"
                                 Width="auto"
                                 Margin="5"
                                     Click="deleteButton_Click">
                                 Удалить
                             </Button>
                         </StackPanel>
+                        <!--#endregion Кнопкт для атлета-->
                         <!--#region Список упрожнений на сегодня-->
                         <ListView x:Name="ListOfWorkaut" Grid.Row="1" Grid.Column="1" Margin="5">
                             <ListView.View>
@@ -139,18 +141,26 @@
                             </ListView.View>
                         </ListView>
                         <!--#endregion Список упрожнений на сегодня-->
-                        
-                        <StackPanel Grid.Column="1" 
+                        <!--#region Центральная понель с именем и весом-->
+                        <StackPanel Grid.Column="0" 
+                                    Grid.ColumnSpan="3"
                                     Orientation="Horizontal" 
                                     HorizontalAlignment="Center">
-                            <Label Name="lbNameAtlet" FontSize="20" Foreground="#18160F">
-                                lbNameAtlet
-                            </Label>
+                            <TextBlock Name="lbNameAtlet" FontSize="20" Foreground="#18160F"
+                                   VerticalAlignment="Center" >
+                                
+                                <Run Text="{Binding SelectedItem.Name, ElementName=ListOfAthletes}"/>
+                                <Run Text=","/>
+                            </TextBlock>
 
-                            <Label Name ="lbWeight" FontSize="20" Foreground="#18160F">
-                                Weight
-                            </Label>
+                            <TextBlock Name ="lbWeight" FontSize="20" Foreground="#18160F"
+                                  VerticalAlignment="Center" >
+                                <Run Text=" вес: "/>
+                                <Run Text="{Binding SelectedItem.Weight, ElementName=ListOfAthletes}"/>
+                                <Run Text=" кг."/>
+                            </TextBlock>
                         </StackPanel>
+                        <!--#endregion Центральная панель с именем и весом-->
 
                         <Label Grid.Column="2" 
                                HorizontalAlignment="Center" 
@@ -223,11 +233,27 @@
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <Button x:Name="btAddFood"
-                                Grid.Row="4"
-                                Margin="5">
-                            Добавить продукт
-                        </Button>
+                        <StackPanel  Grid.Row="4" 
+                                     Orientation="Horizontal"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center">
+                            
+                            <Button x:Name="btAddFood"                               
+                                    Margin="5"
+                                    
+                                    FontSize="20">
+                                Доб.
+                            </Button>
+                           
+                            <Button x:Name="btEditFood"
+                                    Margin="5">
+                                Редактировать
+                            </Button>
+                            <Button x:Name="btRemuveFood"
+                                    Margin="5">
+                                Удалить
+                            </Button>
+                        </StackPanel>
                         <!--#endregion Таблица питания-->
                         
                     </Grid>
