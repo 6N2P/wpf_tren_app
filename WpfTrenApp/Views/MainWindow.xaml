@@ -208,8 +208,9 @@
                             <Label>
                                 тукущий вес
                             </Label>
-                            <Label Name ="realWeight">
-                                realWeight
+                            <Label Name ="realWeight"
+                                      Content="{Binding SelectedItem.Weight, ElementName=ListOfAthletes}">
+                                
                             </Label>
                         </StackPanel>
                         <!--#endregion Шапка-->

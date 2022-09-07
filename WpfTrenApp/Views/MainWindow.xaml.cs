@@ -33,7 +33,7 @@ namespace WpfTrenApp
             InitializeComponent();
             db = new ApplicationContext();
             db.Atlets.Load();
-            ListOfAthletes.ItemsSource=db.Atlets.Local.ToBindingList();
+            ListOfAthletes.ItemsSource = db.Atlets.Local.ToBindingList();
 
             this.DataContext = new MainViewModel();
 
