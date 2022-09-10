@@ -83,7 +83,8 @@ namespace WpfTrenApp.ViewModels
                     (createAtlet = new RelayCommand(obj =>
                     {
                         int ageNow = Atlet.GetAge(Birthdey);
-                        Atlet user = new Atlet(NameUser, ageNow, Growth, Weight, Tren);
+                        double coafficitnt = Atlet.CoafficintActivity(Activity);
+                        Atlet user = new Atlet(NameUser, ageNow, Growth, Weight, Tren, coafficitnt);
                         db.Atlets.Add(user);
                         db.SaveChanges();
                     }));

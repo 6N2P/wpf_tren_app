@@ -78,16 +78,19 @@
 
                         <Canvas Grid.ColumnSpan="3" Background="#BFBDCE"/>
 
-                        <Label x:Name="date_label" Grid.Row="0" 
-                               HorizontalAlignment="Center" 
-                               FontSize="30"
-                               Foreground="#18160F" 
-                               Margin="0,-5,0,0"
-                               Content="{Binding DateNaw.Date}">
-                            
-                        </Label>
+                        <TextBox x:Name="date_label" Grid.Row="0" 
+                                 HorizontalAlignment="Center" 
+                                 VerticalAlignment="Center"
+                                 FontSize="30"
+                                 Foreground="#18160F" 
+                                 Margin="0,-5,0,0"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"
+                                 Text="{Binding DateNaw, StringFormat='dd.MM.yyyy'}">
+
+                        </TextBox>
                         <!--#region Список Атлетов-->
-                        <ListView x:Name="ListOfAthletes" Grid.Row="1" Margin="5">
+                        <ListView x:Name="ListOfAthletes" Grid.Row="1" Margin="5" SelectionChanged="ListOfAthletes_SelectionChanged">
                             <ListView.View>
                                 <GridView>
                                     <GridView.Columns>
@@ -200,11 +203,18 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center">
                             <Label>
-                                Необходимо калорий
+                                Калорий для набора
                             </Label>
-                            <Label Name="caloryCalc">
+                            <Label Name="CaloryCalc">
                                 caloryCalc
                             </Label>
+                            <Label>
+                                Норм калории
+                            </Label>
+                            <Label x:Name="CaloryNorm">
+                                caloriNorm
+                            </Label>
+
                             <Label>
                                 тукущий вес
                             </Label>

@@ -25,7 +25,8 @@ namespace WpfTrenApp.ViewModels
         public DateTime DateNaw
         {
             get => _dateNaw;
-            set { _dateNaw = value; OnPropertyChanged(nameof(DateNaw)); }
+            set { _dateNaw = value; 
+                OnPropertyChanged(nameof(DateNaw)); }
         }
 
         private double _amountCalriesNeededMass;
@@ -48,6 +49,8 @@ namespace WpfTrenApp.ViewModels
                 OnPropertyChanged("NameUser");
             }
         }
+
+
         #endregion Properti
 
         #region Команды

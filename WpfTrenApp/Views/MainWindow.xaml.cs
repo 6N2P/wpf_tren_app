@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using WpfTrenApp.ViewModels;
 using WpfTrenApp.Views;
 
+
 using WpfTrenApp.Data;
 using System.Data.Entity;
 using System.ComponentModel;
@@ -42,6 +43,7 @@ namespace WpfTrenApp
             
         }
 
+        
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
             db.Dispose();
@@ -90,6 +92,18 @@ namespace WpfTrenApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void ListOfAthletes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Atlet atlet = new Atlet();
+            atlet=ListOfAthletes.SelectedItem as Atlet;
+            double caloriedNid = Calorie.CalorieCalculation(atlet.Weight, atlet.Age, atlet.Growth, atlet.Activity);
+            CaloryCalc.Content = Math.Round( caloriedNid,0);
+
+            double calorieNorm = Calorie.CalorieCalculationNorm(atlet.Weight, atlet.Age, atlet.Growth, atlet.Activity);
+            CaloryNorm.Content = Math.Round( calorieNorm,0);
 
         }
     }
