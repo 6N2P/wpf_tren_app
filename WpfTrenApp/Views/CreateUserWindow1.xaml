@@ -9,7 +9,7 @@
         Background="Transparent" 
         xmlns:vm="clr-namespace:WpfTrenApp.ViewModels"
         WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" >
-    <Border Background="#C6C6CE" CornerRadius="30">
+    <Border Background="#C6C6CE" CornerRadius="30" MouseDown="Border_MouseDown">
         <Border.Resources>
             <Style TargetType="Label">
                 <Setter Property="FontFamily" Value="Bryndan Handwriting"/>
