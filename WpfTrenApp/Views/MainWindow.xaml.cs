@@ -32,9 +32,9 @@ namespace WpfTrenApp
         public MainWindow()
         {
             InitializeComponent();
-            db = new ApplicationContext();
-            db.Atlets.Load();
-            ListOfAthletes.ItemsSource = db.Atlets.Local.ToBindingList();
+            //db = new ApplicationContext();
+            //db.Atlets.Load();
+            //ListOfAthletes.ItemsSource = db.Atlets.Local.ToBindingList();
 
             this.DataContext = new MainViewModel();
 
@@ -46,7 +46,7 @@ namespace WpfTrenApp
         
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
-            db.Dispose();
+           // db.Dispose();
         }
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
@@ -97,13 +97,8 @@ namespace WpfTrenApp
 
         private void ListOfAthletes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Atlet atlet = new Atlet();
-            atlet=ListOfAthletes.SelectedItem as Atlet;
-            double caloriedNid = Calorie.CalorieCalculation(atlet.Weight, atlet.Age, atlet.Growth, atlet.Activity);
-            CaloryCalc.Content = Math.Round( caloriedNid,0);
-
-            double calorieNorm = Calorie.CalorieCalculationNorm(atlet.Weight, atlet.Age, atlet.Growth, atlet.Activity);
-            CaloryNorm.Content = Math.Round( calorieNorm,0);
+            //Atlet atlet = new Atlet();
+            //atlet = ListOfAthletes.SelectedItem as Atlet;
 
         }
     }

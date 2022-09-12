@@ -90,7 +90,7 @@
 
                         </TextBox>
                         <!--#region Список Атлетов-->
-                        <ListView x:Name="ListOfAthletes" Grid.Row="1" Margin="5" SelectionChanged="ListOfAthletes_SelectionChanged">
+                        <ListView x:Name="ListOfAthletes" Grid.Row="1" Margin="5"  ItemsSource="{Binding Atlets}" SelectedItem="{Binding SelectedAtlet}">
                             <ListView.View>
                                 <GridView>
                                     <GridView.Columns>
@@ -205,23 +205,22 @@
                             <Label>
                                 Калорий для набора
                             </Label>
-                            <Label Name="CaloryCalc">
-                                caloryCalc
+                            <Label Name="CaloryCalc" Content="{Binding AmountCalriesNeededMass}">
+                                
                             </Label>
                             <Label>
                                 Норм калории
                             </Label>
-                            <Label x:Name="CaloryNorm">
-                                caloriNorm
-                            </Label>
+                            <Label x:Name="CaloryNorm"
+                                   Content="{Binding AmountCfloriesNeededNaw}"/>
 
                             <Label>
                                 тукущий вес
                             </Label>
                             <Label Name ="realWeight"
-                                      Content="{Binding SelectedItem.Weight, ElementName=ListOfAthletes}">
-                                
-                            </Label>
+                                      Content="{Binding SelectedItem.Weight, ElementName=ListOfAthletes}"/>
+
+
                         </StackPanel>
                         <!--#endregion Шапка-->
                         <!--#region Таблица питания-->
