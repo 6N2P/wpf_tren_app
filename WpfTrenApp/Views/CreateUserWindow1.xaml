@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTrenApp.Views"
         mc:Ignorable="d"
-        Title="CreateUserWindow1" Height="250" Width="300"
+        Title="CreateUserWindow1" Height="300" Width="300"
         Background="Transparent" 
         xmlns:vm="clr-namespace:WpfTrenApp.ViewModels"
         WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" >
@@ -20,9 +20,9 @@
             <Style TargetType="Button">
                 <Setter Property="FontFamily" Value="Bryndan Handwriting"/>
                 <Setter Property="FontSize" Value="18"/>
-                <Setter Property="Height" Value="20"/>
+                <Setter Property="Height" Value="25"/>
                 <Setter Property="Width" Value="60"/>
-                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Margin" Value="2"/>
             </Style>
         </Border.Resources>
         <Grid Margin="20" >
@@ -50,8 +50,14 @@
                      Margin="5,0,5,0"
                      Text="{Binding NameUser}"/>
             <Label FontSize="13" Grid.Row="1" Grid.ColumnSpan="2" >Дата рождения</Label>
-            <DatePicker x:Name="dpDateOfBirth" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Margin="5,0,5,0"
-                        SelectedDate="{Binding Birthdey}"></DatePicker>
+            <DatePicker x:Name="dpDateOfBirth"
+                        Grid.Column="2"
+                        Grid.Row="1"
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Center"
+                        Margin="5"
+                        
+                        SelectedDate="{Binding Birthdey}" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial"/>
             <Label Grid.Row="2" >Рост</Label>
             <TextBox x:Name="tbGrowth" 
                      Grid.Column="2" 
@@ -105,7 +111,7 @@
                     OK
                 </Button>
                 <Button Click="Button_Click_1">
-                    Отмена
+                    Закрыть
                 </Button>
             </StackPanel>
         </Grid>

@@ -34,10 +34,13 @@ namespace WpfTrenApp.ViewModels
             set
             {
                 selectedAtlet = value;
-                AmountCalriesNeededMass =Math.Round( Calorie.CalorieCalculation
-                    (selectedAtlet.Weight, selectedAtlet.Age, selectedAtlet.Growth, selectedAtlet.Activity),0);
-                AmountCfloriesNeededNaw = Math.Round(Calorie.CalorieCalculationNorm
-                    (selectedAtlet.Weight, selectedAtlet.Age, selectedAtlet.Growth, selectedAtlet.Activity), 0);
+                if (selectedAtlet != null)
+                {
+                    AmountCalriesNeededMass = Math.Round(Calorie.CalorieCalculation
+                        (selectedAtlet.Weight, selectedAtlet.Age, selectedAtlet.Growth, selectedAtlet.Activity), 0);
+                    AmountCfloriesNeededNaw = Math.Round(Calorie.CalorieCalculationNorm
+                        (selectedAtlet.Weight, selectedAtlet.Age, selectedAtlet.Growth, selectedAtlet.Activity), 0);
+                }
                 OnPropertyChanged(nameof(SelectedAtlet));
             }
         }
@@ -96,6 +99,9 @@ namespace WpfTrenApp.ViewModels
         #endregion Properti
         #region Команды
         private RelayCommand openCreateUserWindow;
+        /// <summary>
+        /// команда открывания окна для создания атлета
+        /// </summary>
         public RelayCommand OpenCreateUserWindow
         {
             get
@@ -109,8 +115,76 @@ namespace WpfTrenApp.ViewModels
             }
         }
 
-        
-       
+        private RelayCommand openCreateFoodWindow;
+
+        public RelayCommand OpenCreateFoodWindow
+        {
+            get
+            {
+                return openCreateFoodWindow ??
+                       (openCreateFoodWindow = new RelayCommand(obj =>
+                       {
+                           CreateFoodWindow foodWindow = new CreateFoodWindow();
+                           foodWindow.ShowDialog();
+                       }));
+            }
+        }
+        private RelayCommand updateViewAtlets;
+        /// <summary>
+        /// команда обновления списка атлетов в veiw
+        /// </summary>
+        public RelayCommand UpdateViewAtlets
+        {
+            get
+            {
+                return updateViewAtlets ??
+                    (updateViewAtlets = new RelayCommand(obj =>
+                    {
+                        db.SaveChanges();
+                        db.Atlets.Load();
+                    }));
+            }
+        }
+        private RelayCommand clouseDb;
+        public RelayCommand ClouseDb
+        {
+            get
+            {
+                return clouseDb ??
+                    (clouseDb = new RelayCommand(obj =>
+                    {
+                        db.Dispose();
+                    }));
+            }
+        }
+
+        private RelayCommand deletAtletOnView;
+        /// <summary>
+        /// команда удаления атлета из спискад
+        /// </summary>
+        public RelayCommand DeletAtletOnView
+        {
+            get
+            {
+                return deletAtletOnView ??
+                    (deletAtletOnView = new RelayCommand(obj =>
+                    {
+                        if (Atlets.Count > 0)
+                        {
+                            for (int i = 0; i < Atlets.Count; i++)
+                            {
+                                Atlet atlet = selectedAtlet as Atlet;
+                                if (atlet != null)
+                                {
+                                    db.Atlets.Remove(atlet);
+                                }
+                            }
+                        }
+                        db.SaveChanges();
+                    }));
+            }
+        }
+
         #endregion Команды
 
         /// <summary>
@@ -124,7 +198,6 @@ namespace WpfTrenApp.ViewModels
             Atlets = new ObservableCollection<Atlet>();
             Atlets = db.Atlets.Local;
            
-
         }
     }
 }

@@ -62,14 +62,5 @@ namespace WpfTrenApp.Data
 
             return coafficient;
         }
-
-        //public static List<Atlet> GetAllAtlets()
-        //{
-        //    ApplicationContext context = new ApplicationContext();
-        //    context.Atlets.Load();
-        //    List<Atlet> atlets = new List<Atlet>();
-        //    return atlets = context.Atlets.ToList();
-        //}
-
     }
 }

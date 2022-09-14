@@ -46,6 +46,7 @@
                    HorizontalContentAlignment="Center"
                    VerticalContentAlignment="Center" FontSize="10" 
                    Foreground="#CCBBCD" FontFamily="Arial Black"
+                   
                    >X</Label>
             <Label x:Name="Min"
                 MouseDown="Min_MouseDown" 
@@ -78,17 +79,17 @@
 
                         <Canvas Grid.ColumnSpan="3" Background="#BFBDCE"/>
 
-                        <TextBox x:Name="date_label" Grid.Row="0" 
+                        <TextBlock x:Name="date_label" Grid.Row="0" 
                                  HorizontalAlignment="Center" 
                                  VerticalAlignment="Center"
                                  FontSize="30"
                                  Foreground="#18160F" 
                                  Margin="0,-5,0,0"
                                  Background="Transparent"
-                                 BorderBrush="Transparent"
+                                 
                                  Text="{Binding DateNaw, StringFormat='dd.MM.yyyy'}">
 
-                        </TextBox>
+                        </TextBlock>
                         <!--#region Список Атлетов-->
                         <ListView x:Name="ListOfAthletes" Grid.Row="1" Margin="5"  ItemsSource="{Binding Atlets}" SelectedItem="{Binding SelectedAtlet}">
                             <ListView.View>
@@ -120,18 +121,18 @@
                             <Button Height="25"
                                 Width="auto"
                                 Margin="5"
-                                    Click="updateButton_Click">
+                                    Command="{Binding UpdateViewAtlets}">
                                 Обновить
                             </Button>
                             <Button Height="25"
                                 Width="auto"
                                 Margin="5"
-                                    Click="deleteButton_Click">
+                                    Command="{Binding DeletAtletOnView}">
                                 Удалить
                             </Button>
                         </StackPanel>
-                        <!--#endregion Кнопкт для атлета-->
-                        <!--#region Список упрожнений на сегодня-->
+                        <!--#endregion Кнопка для атлета-->
+                        <!--#region Список упражнений на сегодня-->
                         <ListView x:Name="ListOfWorkaut" Grid.Row="1" Grid.Column="1" Margin="5">
                             <ListView.View>
                                 <GridView>
@@ -143,8 +144,8 @@
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <!--#endregion Список упрожнений на сегодня-->
-                        <!--#region Центральная понель с именем и весом-->
+                        <!--#endregion Список упражнений на сегодня-->
+                        <!--#region Центральная панель с именем и весом-->
                         <StackPanel Grid.Column="0" 
                                     Grid.ColumnSpan="3"
                                     Orientation="Horizontal" 
@@ -180,7 +181,7 @@
                     <Grid Background="White"/>
                 </TabItem>
                 <!--#endregion Окно тренировки-->
-                <!--#region Окно птания-->
+                <!--#region Окно питания-->
                 <TabItem Header="Питание"  >
                     <Grid Background="White">
                         <Grid.ColumnDefinitions>
@@ -215,7 +216,7 @@
                                    Content="{Binding AmountCfloriesNeededNaw}"/>
 
                             <Label>
-                                тукущий вес
+                                текущий вес
                             </Label>
                             <Label Name ="realWeight"
                                       Content="{Binding SelectedItem.Weight, ElementName=ListOfAthletes}"/>
@@ -250,8 +251,8 @@
                             
                             <Button x:Name="btAddFood"                               
                                     Margin="5"
-                                    
-                                    FontSize="20">
+                                    FontSize="20"
+                                    Command="{Binding OpenCreateFoodWindow}">
                                 Доб.
                             </Button>
                            

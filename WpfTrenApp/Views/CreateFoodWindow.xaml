@@ -1,0 +1,121 @@
+﻿<Window x:Class="WpfTrenApp.Views.CreateFoodWindow"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTrenApp.Views"
+        mc:Ignorable="d"
+        Title="CreateUserWindow1" Height="250" Width="300"
+        Background="Transparent" 
+        xmlns:vm="clr-namespace:WpfTrenApp.ViewModels"
+        WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" >
+    <Border Background="#C6C6CE" CornerRadius="30" MouseDown="Border_MouseDown">
+        <Border.Resources>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Bryndan Handwriting"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="Bryndan Handwriting"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Height" Value="25"/>
+                <Setter Property="Width" Value="60"/>
+                <Setter Property="Margin" Value="2"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="FontFamily" Value="Bryndan Handwriting"/>
+               <Setter Property="Margin" Value="2"/>
+            </Style>
+        </Border.Resources>
+        <Grid Margin="20" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+               
+
+            </Grid.RowDefinitions>
+            <Label >
+                <Viewbox>
+                    <TextBlock>
+                        Название продукта
+                    </TextBlock>
+                </Viewbox>
+            </Label>
+            <TextBox Grid.Row="0" 
+                     Grid.Column="1"
+                     Name="tbName"/>
+
+            <Label Grid.Row="1" 
+                   Grid.Column="0">
+                <Viewbox>
+                    <TextBlock>
+                        Кол-во. Протеина на 100г
+                    </TextBlock>
+                </Viewbox>
+            </Label>
+
+            <TextBox Grid.Row="1" 
+                     Grid.Column="1"
+                     Name="tbProtein"/>
+
+            <Label Grid.Row="2" 
+                   Grid.Column="0">
+                <Viewbox>
+                    <TextBlock>
+                        Кол-во. Жиров на 100г
+                    </TextBlock>
+                </Viewbox>
+            </Label>
+
+            <TextBox Grid.Row="2" 
+                     Grid.Column="1"
+                     Name="tbFats"/>
+
+            <Label Grid.Row="3" 
+                   Grid.Column="0">
+                <Viewbox>
+                    <TextBlock>
+                        Кол-во. Углеводов на 100г
+                    </TextBlock>
+                </Viewbox>
+            </Label>
+
+            <TextBox Grid.Row="3" 
+                     Grid.Column="1"
+                     Name="tbCarbohydrates"/>
+
+            <Label Grid.Row="4" 
+                   Grid.Column="0">
+                <Viewbox>
+                    <TextBlock>
+                        Кол-во. Каллорий на 100г
+                    </TextBlock>
+                </Viewbox>
+            </Label>
+
+            <TextBox Grid.Row="4" 
+                     Grid.Column="1"
+                     Name="tbCalories"/>
+
+            <StackPanel Grid.Row="5"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                <Button>Создать</Button>
+                <Button Click="Button_Click">Выход</Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

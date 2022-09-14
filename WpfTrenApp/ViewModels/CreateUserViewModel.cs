@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using WpfTrenApp.Data;
 using WpfTrenApp.Views;
 
@@ -87,6 +84,7 @@ namespace WpfTrenApp.ViewModels
                         Atlet user = new Atlet(NameUser, ageNow, Growth, Weight, Tren, coafficitnt);
                         db.Atlets.Add(user);
                         db.SaveChanges();
+                      
                     }));
             }
         }
