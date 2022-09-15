@@ -89,9 +89,6 @@ namespace WpfTrenApp.ViewModels
             }
         }
 
-      
-
-        
         #endregion Command
         public CreateUserViewModel()
         {           

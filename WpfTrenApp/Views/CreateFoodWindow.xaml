@@ -26,7 +26,11 @@
             </Style>
             <Style TargetType="TextBox">
                 <Setter Property="FontFamily" Value="Bryndan Handwriting"/>
-               <Setter Property="Margin" Value="2"/>
+                <Setter Property="Margin" Value="2"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                
+                
             </Style>
         </Border.Resources>
         <Grid Margin="20" >
@@ -54,7 +58,8 @@
             </Label>
             <TextBox Grid.Row="0" 
                      Grid.Column="1"
-                     Name="tbName"/>
+                     Name="tbName"
+                     Text="{Binding FoodName}"/>
 
             <Label Grid.Row="1" 
                    Grid.Column="0">
@@ -67,7 +72,8 @@
 
             <TextBox Grid.Row="1" 
                      Grid.Column="1"
-                     Name="tbProtein"/>
+                     Name="tbProtein"
+                     Text="{Binding Proteins}"/>
 
             <Label Grid.Row="2" 
                    Grid.Column="0">
@@ -80,7 +86,8 @@
 
             <TextBox Grid.Row="2" 
                      Grid.Column="1"
-                     Name="tbFats"/>
+                     Name="tbFats"
+                     Text="{Binding Fats}"/>
 
             <Label Grid.Row="3" 
                    Grid.Column="0">
@@ -93,7 +100,8 @@
 
             <TextBox Grid.Row="3" 
                      Grid.Column="1"
-                     Name="tbCarbohydrates"/>
+                     Name="tbCarbohydrates"
+                     Text="{Binding Carbohydrates}"/>
 
             <Label Grid.Row="4" 
                    Grid.Column="0">
@@ -106,14 +114,15 @@
 
             <TextBox Grid.Row="4" 
                      Grid.Column="1"
-                     Name="tbCalories"/>
+                     Name="tbCalories"
+                     Text="{Binding Calories}"/>
 
             <StackPanel Grid.Row="5"
                         Grid.ColumnSpan="2"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Orientation="Horizontal">
-                <Button>Создать</Button>
+                <Button Command="{Binding CreateFood}">Создать</Button>
                 <Button Click="Button_Click">Выход</Button>
             </StackPanel>
         </Grid>

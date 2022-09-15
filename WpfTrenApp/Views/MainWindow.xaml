@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfTrenApp"
         xmlns:vm="clr-namespace:WpfTrenApp.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="Transparent" 
+        Title="MainWindow" Height="450" Width="1000" Background="Transparent" 
         WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         FontFamily="Bryndan Handwriting">
     
@@ -231,15 +231,18 @@
                                FontSize="20">
                             Питание
                         </Label>
-                        <ListView x:Name="ListFood" Grid.Row="2" Grid.Column="0" Margin="5">
+                        
+                        <ListView x:Name="ListFood" Grid.Row="2" Grid.Column="0" Margin="5"
+                                  ItemsSource="{Binding Foods}"
+                                  SelectedItem ="{Binding SelectedFood}">
                             <ListView.View>
                                 <GridView>
                                     <GridView.Columns>
-                                        <GridViewColumn Header="Продукт" DisplayMemberBinding="{Binding Path=ModelNameAtletes}"/>
-                                        <GridViewColumn Header="Б" DisplayMemberBinding="{Binding Path=ModelWeightAtletes}" />
-                                        <GridViewColumn Header="Ж"/>
-                                        <GridViewColumn Header="У"/>
-                                        <GridViewColumn Header="Кал."/>
+                                        <GridViewColumn Header="Продукт" DisplayMemberBinding="{Binding Path=Name}"/>
+                                        <GridViewColumn Header="Б" DisplayMemberBinding="{Binding Path=Proteins}" />
+                                        <GridViewColumn Header="Ж" DisplayMemberBinding="{Binding Fats}"/>
+                                        <GridViewColumn Header="У" DisplayMemberBinding="{Binding Carbohydrates}"/>
+                                        <GridViewColumn Header="Кал." DisplayMemberBinding="{Binding Calories}"/>
                                     </GridView.Columns>
                                 </GridView>
                             </ListView.View>
@@ -257,11 +260,13 @@
                             </Button>
                            
                             <Button x:Name="btEditFood"
-                                    Margin="5">
+                                    Margin="5"
+                                    Command="{Binding UpdateViewFoods }">
                                 Редактировать
                             </Button>
                             <Button x:Name="btRemuveFood"
-                                    Margin="5">
+                                    Margin="5"
+                                    Command="{Binding DletFoodOnView}">
                                 Удалить
                             </Button>
                         </StackPanel>

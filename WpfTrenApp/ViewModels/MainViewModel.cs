@@ -23,6 +23,7 @@ namespace WpfTrenApp.ViewModels
         #region Properti
         //считывает из бд Атлетов
         public ObservableCollection<Atlet> Atlets { get; set; }
+        public ObservableCollection<Food> Foods { get; set; }
 
         private Atlet selectedAtlet;
         /// <summary>
@@ -45,6 +46,17 @@ namespace WpfTrenApp.ViewModels
             }
         }
 
+        private Food selectedFood;
+
+        public Food SelectedFood
+        {
+            get => selectedFood;
+            set
+            {
+                selectedFood=value;
+                OnPropertyChanged(nameof(SelectedFood));
+            }
+        }
         private DateTime _dateNaw;
         /// <summary>
         /// Считывает настоящую дату
@@ -145,6 +157,21 @@ namespace WpfTrenApp.ViewModels
                     }));
             }
         }
+
+        private RelayCommand updateViewFoods;
+
+        public RelayCommand UpdateViewFoods
+        {
+            get
+            {
+                return updateViewFoods ??
+                       (updateViewFoods = new RelayCommand(obj =>
+                       {
+                           db.SaveChanges();
+                           db.Foods.Load();
+                       }));
+            }
+        }
         private RelayCommand clouseDb;
         public RelayCommand ClouseDb
         {
@@ -185,6 +212,30 @@ namespace WpfTrenApp.ViewModels
             }
         }
 
+        private RelayCommand deletFoodOnView;
+
+        public RelayCommand DletFoodOnView
+        {
+            get
+            {
+                return deletFoodOnView ??
+                       (deletFoodOnView = new RelayCommand(obj =>
+                       {
+                           if (Foods.Count > 0)
+                               for (int i = 0; i < Foods.Count; i++)
+                               {
+                                   Food food = selectedFood as Food;
+                                   if (food != null)
+                                   {
+                                       db.Foods.Remove(food);
+                                   }
+                               }
+
+                           db.SaveChanges();
+                       }));
+            }
+        }
+
         #endregion Команды
 
         /// <summary>
@@ -197,6 +248,10 @@ namespace WpfTrenApp.ViewModels
             db.Atlets.Load();
             Atlets = new ObservableCollection<Atlet>();
             Atlets = db.Atlets.Local;
+
+            db.Foods.Load();
+            Foods=new ObservableCollection<Food>();
+            Foods = db.Foods.Local;
            
         }
     }

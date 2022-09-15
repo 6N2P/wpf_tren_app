@@ -14,5 +14,17 @@ namespace WpfTrenApp.Data
         public int Fats { get; set; }
         public int Carbohydrates { get; set; }
         public int Calories { get; set; }
+
+        public Food() {}
+
+        public Food( string name, int proteins, int fats, int carbohydrates, int calories)
+        {
+            
+            Name = name;
+            Proteins = proteins;
+            Fats = fats;
+            Carbohydrates = carbohydrates;
+            Calories = calories;
+        }
     }
 }
